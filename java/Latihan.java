@@ -25,7 +25,9 @@ public class Latihan {
         System.out.println("Birth Place: " + birthPlace);
         System.out.println("Fav Programming Lang: " + programLangFav);
         System.out.println("Birth Year: " + birthYear);
-
+        
+        object.close();
+        
         System.out.println(" ");
         System.out.println("---Soal No.2---");
         int[] array1 = {2,3,4,5};
@@ -50,6 +52,6 @@ public class Latihan {
             System.out.print(array[i] + ", ");
         }
 
-
+        
     }
 }
