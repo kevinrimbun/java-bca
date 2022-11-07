@@ -1,0 +1,41 @@
+Senin 07/11//22
+---Pretest---
+
+1. tidak
+2. int x;
+x = 7;
+3. system.out.println("hello world")
+4. for (int angka = 0; angka <= 29; angka++) {
+    System.out.println(angka);
+}
+5. 0
+6. for (int angka = 0; angka <= 30; angka++) {
+	if (angka %7 == 0) {
+		system.out.println('kevin')
+}
+}
+
+---Posttest---
+
+1.public class App {
+    public static void main(String[] args) {
+        System.out.print("create method");
+    }
+}
+
+2. public class App {
+    public static void main(String[] args) {
+        System.out.print("create method");
+	Nama nama = new Nama();
+	String name = nama.getNama();
+	System.out.print(name);
+    }
+}
+
+class Nama {
+	private String nama = "Kevin";
+
+	public String getNama() {
+	return nama;
+	}
+}
