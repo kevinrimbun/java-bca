@@ -1,0 +1,7 @@
+Kevin Rimbun
+Selasa, 8/11/22
+
+
+1. metode di java untuk berfokus pada objek, sehingga  objeknya dapat dimanipulasi.
+2. Class
+3. Class adalah suatu file pada java untuk memulai pemrograman, sedangkan Object dibuat dari suatu class yang sudah ada
