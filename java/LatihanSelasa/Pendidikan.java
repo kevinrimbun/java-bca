@@ -18,7 +18,7 @@ public class Pendidikan extends Person {
     }
 
     public void getPendidikan() {
-        System.out.println("--- Riwayat Pendidikan ---");
+        System.out.println("\n--- Riwayat Pendidikan ---");
         System.out.println("Riwayat Pendidikan: " + getEducation());
     }
 }

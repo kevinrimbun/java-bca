@@ -1,10 +1,9 @@
 package LatihanSelasa;
 
-// import java.time.LocalDate;  
-// import java.time.Period;
 
 public class Person {
-    private String firstName, lastName, domicile, birthYear;
+    private String firstName, lastName, domicile;
+    private int birthYear;
 
     // Default Constructor without parameter (inisialisai variabel dgn nilai default). num = 0, string = ("")
     public Person(){
@@ -12,7 +11,7 @@ public class Person {
     }
 
     // Constructor with parameter
-    public Person (String firstName, String lastName, String domicile, String birthYear) {
+    public Person (String firstName, String lastName, String domicile, int birthYear) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.domicile = domicile;
@@ -48,21 +47,25 @@ public class Person {
         return this.domicile;
     }
 
-    public void setBirthYear(String tahunLahir ) {
+    public void setBirthYear(int tahunLahir ) {
         this.birthYear = tahunLahir; 
     }
 
-    // LocalDate dob = LocalDate.parse(input);
-
-    public String getAge() {
+    public int getBirthYear() {
         return this.birthYear;
     }
 
+    // Calculated Age Static
+    public int getAge() {
+        return 2022 - this.birthYear;
+    }
+
     public void getBiodata() {
-        System.out.println("--- Data Pribadi ---");
+        System.out.println("\n--- Data Pribadi ---");
         System.out.println("Nama Lengkap: " + getFullName());
         System.out.println("Domisili: " + getDomicile());
-        System.out.println("Birth Year:" + getAge());
+        System.out.println("Tahun Lahir: " + getBirthYear());
+        System.out.println("Umur Anda: " + getAge() + " tahun");
     }
 
 }
