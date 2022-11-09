@@ -3,6 +3,11 @@ package LatihanSelasa;
 public class Pendidikan extends Person {
     private String education;
 
+    // Default Constructor
+    public Pendidikan(){
+
+    }
+    
     // Constructor with parameter
     public Pendidikan (String education) {
         this.education = education;

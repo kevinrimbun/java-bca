@@ -20,7 +20,9 @@ public class Main {
 
     public static void main(String[] args) {
         Main main = new Main();
-
+        Person person = new Person();
+        Pendidikan pendidikan = new Pendidikan();
+        
         do {
             main.chooseOption();
 
@@ -49,24 +51,25 @@ public class Main {
 
                 case "3":
                     System.out.println("\nData Pribadi Anda");
-                    Person person = new Person(main.firstName, main.lastName, main.domicile, main.birthYear);
+                    person = new Person(main.firstName, main.lastName, main.domicile, main.birthYear);
                     person.getBiodata();
                     
                     break;
 
                 case "4":
                     System.out.println("\nRiwayat Pendidikan Anda");
-                    Pendidikan pendidikan = new Pendidikan(main.education);
+                    pendidikan = new Pendidikan(main.education);
                     pendidikan.getPendidikan();
                     
                     break;
 
                 case "5":
                     System.out.println("\nData Pribadi & Riwayat Pendidikan Anda");
-                    Person biodataPerson = new Person(main.firstName, main.lastName, main.domicile, main.birthYear);
-                    biodataPerson.getBiodata();
-                    Pendidikan education = new Pendidikan(main.education);
-                    education.getPendidikan();
+                    // Person biodataPerson = new Person(main.firstName, main.lastName, main.domicile, main.birthYear);
+                    person.getBiodata();
+                    // biodataPerson.getBiodata();
+                    // Pendidikan education = new Pendidikan(main.education);
+                    pendidikan.getPendidikan();
                     
                     break;
 
