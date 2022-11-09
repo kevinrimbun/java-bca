@@ -74,7 +74,7 @@ public class Main {
                 System.out.println("Opsi Tidak Tersedia");
                     break;
             }
-            System.out.println("Ingin keluar pendataan? input /y jika ingin keluar | /n jika tidak");
+            System.out.print("Ingin keluar pendataan? input /y jika ingin keluar | /n jika tidak");
             main.option = main.scanner.nextLine();
         } while (main.option.equalsIgnoreCase("/n"));
         
