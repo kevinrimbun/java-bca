@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
     Scanner scanner = new Scanner(System.in);
     String option;
-    int sisiBangun, alasSegitiga, tinggiSegitiga;
+    int sisiBangun, alasSegitiga, tinggiSegitiga, tinggiPrisma;
 
     public void chooseOption(){
         System.out.println("---Pilih Opsi yg Diinginkan");
@@ -28,7 +28,7 @@ public class Main {
         Lingkaran lingkaran = new Lingkaran();
         Bola bola = new Bola();
         Segitiga segitiga = new Segitiga();
-        Prisma prisma = new Prisma();
+
 
         do {
             main.chooseOption();
@@ -44,6 +44,9 @@ public class Main {
                     main.scanner.nextLine();
                     System.out.print("Nilai Tinggi Bangun (Luas Segitiga): ");
                     main.tinggiSegitiga = main.scanner.nextInt();
+                    main.scanner.nextLine();
+                    System.out.print("Nilai Tinggi Prisma: ");
+                    main.tinggiPrisma = main.scanner.nextInt();
                     main.scanner.nextLine();
                     break;
 
@@ -74,13 +77,14 @@ public class Main {
                 case "6":
                     System.out.println("\nMenampilkan Luas dan Keliling Segitiga");
                     segitiga = new Segitiga(main.sisiBangun, main.alasSegitiga, main.tinggiSegitiga);
-                    segitiga.sisiSegitiga();
+                    segitiga.getHasil();
                     break;
                 
                 case "7":
                     System.out.println("\nMenampilkan Volume Prisma");
-                    prisma = new Prisma(main.alasSegitiga, main.tinggiSegitiga);
-                    prisma.sisiSegitiga();
+                    Prisma prisma = new Prisma();
+                    prisma = new Prisma(main.tinggiPrisma);
+                    prisma.volume();
                     break;
             
                 default:
