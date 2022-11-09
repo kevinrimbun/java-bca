@@ -2,6 +2,7 @@ package LatihanSelasa;
 
 
 public class Person {
+    // private is encaptulation data
     private String firstName, lastName, domicile;
     private int birthYear;
 

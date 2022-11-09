@@ -7,6 +7,7 @@ public class Main {
     String option, firstName, lastName, domicile, education;
     int birthYear;
 
+    // Opsi Pilihan
     public void chooseOption() {
         System.out.println("--- Pilih Sesuai Opsi ---");
         System.out.println("1. Input Data Pribadi");
@@ -65,10 +66,9 @@ public class Main {
 
                 case "5":
                     System.out.println("\nData Pribadi & Riwayat Pendidikan Anda");
-                    // Person biodataPerson = new Person(main.firstName, main.lastName, main.domicile, main.birthYear);
+                    // Biodata
                     person.getBiodata();
-                    // biodataPerson.getBiodata();
-                    // Pendidikan education = new Pendidikan(main.education);
+                    // Pendidikan
                     pendidikan.getPendidikan();
                     
                     break;
