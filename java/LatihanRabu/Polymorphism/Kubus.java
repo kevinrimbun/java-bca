@@ -1,29 +1,28 @@
 package LatihanRabu.Polymorphism;
 
 public class Kubus extends Persegi{
-    private int sisiKubus;
+    public Kubus () {
+        super(sisi);
+    }
+    
 
-    public Kubus(){
-
+    @Override
+    public int getSisi() {
+        // TODO Auto-generated method stub
+        return super.getSisi();
     }
 
-    public Kubus(int sisiKubus) {
-        this.sisiKubus = sisiKubus;
+    public double calcLuasPermukaan() {
+        return 6 * (Math.pow(getSisi(), 2) );
     }
 
-    public void setSisiKubus(int sisiKubus){
-        this.sisiKubus = sisiKubus;
-
+    public double calcVolume() {
+        return Math.pow(getSisi(), 3);
     }
-    public int getSisiKubus() {
-        return this.sisiKubus;
-    } 
 
-    // Override dari Class Persegi
-    public void sisiPersegi(){
-        System.out.println("---Volume Kubus---");
-        System.out.println("Sisi Kubus adalah: " + getSisiKubus());
-        System.out.println("Volume Kubus adalah: " + Math.pow(getSisiKubus(), 3) + " meter^3");
+    public void volume() {
+        // TODO Auto-generated method stub
+        System.out.println("Volume Kubus: " + calcVolume() + " meter^3");
     }
     
 

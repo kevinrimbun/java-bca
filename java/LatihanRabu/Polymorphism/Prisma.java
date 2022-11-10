@@ -1,47 +1,51 @@
 package LatihanRabu.Polymorphism;
 
 public class Prisma extends Segitiga {
-    private int tinggiPrisma;
-
     public Prisma(){
-
+        super(sisi, alas, tinggi);
     }
 
-    public Prisma (int tinggiPrisma) {
-        this.tinggiPrisma = tinggiPrisma;
-    }
-
-    public Prisma(int sisiBangun, int alasSegitiga, int tinggiSegitiga) {
-        super(sisiBangun, alasSegitiga, tinggiSegitiga);
-    }
-
-    public void setTinggiPrisma(int tinggiPrisma) {
-        this.tinggiPrisma = tinggiPrisma;
-    }
-
-
-    public int getTinggiPrisma() {
-        return this.tinggiPrisma;
-    }
-    
     @Override
-    public int getTinggiSegitiga() {
+    public int getAlas() {
         // TODO Auto-generated method stub
-        return super.getTinggiSegitiga();
+        return super.getAlas();
     }
-    
+
     @Override
-    public int getLuasSegitiga() {
+    public int getSisi() {
         // TODO Auto-generated method stub
-        return super.getLuasSegitiga();
+        return super.getSisi();
     }
 
-    public int getVolume(){
-        return ( getLuasSegitiga() * this.getTinggiPrisma() );
+    @Override
+    public int getTinggi() {
+        // TODO Auto-generated method stub
+        return super.getTinggi();
     }
 
-    public void volume(){
-        System.out.println("---Volume Prisma---");
-        System.out.println("Volume prisma adalah: " + getVolume() + " meter^3");
+    @Override
+    public int calcLuas() {
+        // TODO Auto-generated method stub
+        return super.calcLuas();
+    }
+
+    @Override
+    public double calcKeliling() {
+        // TODO Auto-generated method stub
+        return super.calcKeliling();
+    }
+
+    public int calcLuasPermukaan() {
+        return ( (2 * calcLuas()) + ( (int) Math.round(calcKeliling()) * tinggi) );
+    }
+
+    public int calcVolume() {
+        return calcLuas() * tinggi;
+    }
+
+    public void volume() {
+        // TODO Auto-generated method stub
+        System.out.println("Volume Prisma: " + calcVolume() + " meter^3");
+        
     }
 }

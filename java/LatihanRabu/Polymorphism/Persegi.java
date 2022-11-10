@@ -1,39 +1,32 @@
 package LatihanRabu.Polymorphism;
 
 public class Persegi {
-    private int sisiPersegi;
-    
-    // Default constructor
+    protected static int sisi;
+
     public Persegi(){
 
     }
+    
+    public Persegi(int sisi){
+        Persegi.sisi = sisi;
+    }
 
-    // Constructor with parameter
-    public Persegi (int sisiPersegi) {
-        this.sisiPersegi = sisiPersegi;
+    public void setSisi(int sisi) {
+        Persegi.sisi = sisi;
+    }
+
+    public int getSisi(){
+        return Persegi.sisi;
+    }
+
+
+    public void luas() {
+        // TODO Auto-generated method stub
+        System.out.println("Luas Persegi: " + ( Math.pow(getSisi(), 2)) + " meter^2");
     }
     
-    public void setSisiPersegi(int sisiPersegi){
-        this.sisiPersegi = sisiPersegi;
-    }
-
-    public int getSisiPersegi() {
-        return this.sisiPersegi;
-    } 
-
-
-    public int getLuasPersegi(){
-        return this.sisiPersegi * this.sisiPersegi;
-    }
-
-    public int getKelilingPersegi() {
-        return 4 * this.sisiPersegi;
-    }
-
-    public void sisiPersegi() {
-        System.out.println("--- Luas dan Keliling Persegi---");
-        System.out.println("Sisi Persegi adalah: " + getSisiPersegi() + " meter");
-        System.out.println("Luas Persegi: " + getLuasPersegi() + " meter^2");
-        System.out.println("Keliling Persegi: " + getKelilingPersegi() + " meter");
+    public void keliling() {
+        // TODO Auto-generated method stub
+        System.out.println("Keliling Persegi: " + ( 4 * getSisi() ) + " meter" );
     }
 }

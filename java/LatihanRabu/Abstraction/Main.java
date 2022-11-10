@@ -110,6 +110,7 @@ public class Main {
                     bola.karakteristikBangun();
                     bola.luasPermukaan();
                     bola.volume();
+                    break;
                     
 
                 default:

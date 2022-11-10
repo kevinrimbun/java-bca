@@ -1,33 +1,48 @@
 package LatihanRabu.Polymorphism;
 
 public class Lingkaran {
-    private int jariLingkaran;
+    protected static int jari;
 
     public Lingkaran(){
 
     }
 
-    public Lingkaran (int sisiLingkaran) {
-        this.jariLingkaran = sisiLingkaran;
+    public Lingkaran(int jari){
+        Lingkaran.jari = jari;
     }
 
-    public void setSisiLingkaran(int sisiLingkaran){
-        this.jariLingkaran = sisiLingkaran;
+    public void setJari(int jari) {
+        Lingkaran.jari = jari;
     }
 
-    public int getSisiLingkaran() {
-        return this.jariLingkaran;
+    public int getJari(){
+        return Lingkaran.jari;
     }
-
-    public void sisiLingkaran(){
-        System.out.println("---Luas dan Keliling Lingkaran---");
-        System.out.println("Sisi Lingkaran Adalah: " + getSisiLingkaran());
-        if (getSisiLingkaran() %7 == 0) {
-            System.out.println("Luas Lingkaran: " + (22/7 * Math.pow(getSisiLingkaran(), 2)) + " meter^2" );
-            System.out.println("Keliling Lingkaran: " + (2 * 22/7 * getSisiLingkaran()) + " meter");
+    
+    public double calcLuas(){
+        if (getJari() %7 == 0) {
+            return ( 22/7 * Math.pow(getJari(), 2) );
         } else {
-            System.out.println("Luas Lingkaran: " + (3.14 * Math.pow(getSisiLingkaran(), 2)) + " meter^2");
-            System.out.println("Keliling Lingkaran: " + (2 * 3.14 * getSisiLingkaran()) + " meter");
+            return ( 3.14 * Math.pow(getJari(), 2) );
+        } 
+    }
+
+    public double calcKeliling(){
+        if (getJari() %7 == 0) {
+            return 2 * 22/7 * getJari();
+        } else {
+            return 2 * 3.14 * getJari();
         }
+    }
+
+    public void luas() {
+        // TODO Auto-generated method stub
+        System.out.println("Luas Lingkaran: " + calcLuas() + " meter^2");
+        
+    }
+
+    public void keliling() {
+        // TODO Auto-generated method stub
+        System.out.println("Keliling Lingkaran: " + calcKeliling() + " meter");
     }
 }

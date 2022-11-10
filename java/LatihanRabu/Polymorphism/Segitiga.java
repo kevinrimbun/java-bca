@@ -1,50 +1,59 @@
 package LatihanRabu.Polymorphism;
 
 public class Segitiga {
-    private int sisiSegitiga, alasSegitiga, tinggiSegitiga;
+    protected static int sisi, alas, tinggi;
 
     public Segitiga(){
 
     }
 
-    public Segitiga (int sisiSegitiga, int alasSegitiga, int tinggiSegitiga) {
-        this.sisiSegitiga = sisiSegitiga;
-        this.alasSegitiga = alasSegitiga;
-        this.tinggiSegitiga = tinggiSegitiga;
+    public Segitiga(int sisi, int alas, int tinggi) {
+        Segitiga.sisi = sisi;
+        Segitiga.alas = alas;
+        Segitiga.tinggi = tinggi;
     }
 
-    public Segitiga(int sisiBangun) {
+    public void setSisi(int sisi) {
+        Segitiga.sisi = sisi;
     }
 
-    public void setAlasSegitiga(int alasSegitiga){
-        this.alasSegitiga = alasSegitiga;
+    public void setAlas(int alas) {
+        Segitiga.alas = alas;
     }
 
-    public void setTinggiSegitiga(int tinggiSegitiga) {
-        this.tinggiSegitiga = tinggiSegitiga;
-    }
-    
-
-    public void setSisiLingkaran(int sisiSegitiga){
-        this.sisiSegitiga = sisiSegitiga;
+    public void setTinggi(int tinggi) {
+        Segitiga.tinggi = tinggi;
     }
 
-    public int getSisiSegitiga() {
-        return this.sisiSegitiga;
+    public int getSisi() {
+        return Segitiga.sisi;
     }
 
-    public int getAlasSegitiga() {
-        return this.alasSegitiga;
+    public int getAlas() {
+        return Segitiga.alas;
     }
 
-    public int getTinggiSegitiga() {
-        return this.tinggiSegitiga;
+    public int getTinggi() {
+        return Segitiga.tinggi;
     }
 
+    public int calcLuas() {
+        return ( ( getAlas() * getTinggi() ) / 2 );
+    }
 
-    public void sisiSegitiga(){
-        System.out.println("---Luas dan Keliling Segitiga");
-        System.out.println("Luas Segitiga adalah: " + ( getAlasSegitiga() * getTinggiSegitiga() / 2 ) + " meter^2");
-        System.out.println("Keliling Segitiga adalah: " + ( Math.pow(getSisiSegitiga(), 3) ) + " meter^2");
+    public double calcKeliling() {
+        return ( Math.pow(getSisi(), 3) );
+    }
+
+    public void luas() {
+        // TODO Auto-generated method stub
+        System.out.println("Luas Segitiga: " + calcLuas() + " meter^2");
+        
+    }
+
+    public void keliling() {
+        // TODO Auto-generated method stub
+        System.out.println("Keliling segitiga: " + calcKeliling() + " meter");
+        
     }
 }

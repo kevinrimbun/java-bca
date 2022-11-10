@@ -5,17 +5,17 @@ import java.util.Scanner;
 public class Main {
     Scanner scanner = new Scanner(System.in);
     String option;
-    int sisiBangun, alasSegitiga, tinggiSegitiga, tinggiPrisma;
+    int sisiPersegi, sisiSegitiga, alas, tinggiSegitiga, tinggiPrisma, jari;
 
     public void chooseOption(){
-        System.out.println("---Pilih Opsi yg Diinginkan");
-        System.out.println("1. Input nilai sisi yang diinginkan");
-        System.out.println("2. Tampilkan Luas dan Keliling persegi");
-        System.out.println("3. Tampilkan Volume Kubus");
-        System.out.println("4. Tampilkan Luas dan Keliling Lingkaran");
-        System.out.println("5. Tampilkan Volume bola");
-        System.out.println("6. Tampilkan Luas dan Keliling Segitiga");
-        System.out.println("7. Tampilkan Volume Prisma");
+        System.out.println("--- Pilih Opsi yg Diinginkan ---");
+        System.out.println("1. Persegi");
+        System.out.println("2. Kubus");
+        System.out.println("3. Segitiga");
+        System.out.println("4. Prisma");
+        System.out.println("5. Lingkaran");
+        System.out.println("6. Bola");
+
 
         System.out.print("Pilihan Anda: ");
         option = scanner.nextLine();
@@ -25,9 +25,10 @@ public class Main {
         Main main = new Main();
         Persegi persegi = new Persegi();
         Kubus kubus = new Kubus();
+        Segitiga segitiga = new Segitiga();
+        Prisma prisma =  new Prisma();
         Lingkaran lingkaran = new Lingkaran();
         Bola bola = new Bola();
-        Segitiga segitiga = new Segitiga();
 
 
         do {
@@ -35,64 +36,66 @@ public class Main {
 
             switch (main.option) {
                 case "1":
-                    System.out.println("\n---Input Nilai Sisi Bangun---");
-                    System.out.print("Nilai Sisi Bangun yg ingin dikonversi (Persegi, Lingkaran, Kubus, Bola, Keliling Segitiga): ");
-                    main.sisiBangun = main.scanner.nextInt();
+                    System.out.println("\n--- Persegi ---");
+                    System.out.print("Input Sisi Persegi: ");
+                    main.sisiPersegi = main.scanner.nextInt();
                     main.scanner.nextLine();
-                    System.out.print("Nilai Alas Bangun (Luas Segitiga): ");
-                    main.alasSegitiga = main.scanner.nextInt();
-                    main.scanner.nextLine();
-                    System.out.print("Nilai Tinggi Bangun (Luas Segitiga): ");
-                    main.tinggiSegitiga = main.scanner.nextInt();
-                    main.scanner.nextLine();
-                    System.out.print("Nilai Tinggi Prisma: ");
-                    main.tinggiPrisma = main.scanner.nextInt();
-                    main.scanner.nextLine();
+                    persegi = new Persegi(main.sisiPersegi);
+                    persegi.luas();
+                    persegi.keliling();
                     break;
 
                 case "2":
-                    System.out.println("\nMenampilkan Luas dan Keliling Persegi");
-                    persegi = new Persegi(main.sisiBangun);
-                    persegi.sisiPersegi();
+                    System.out.println("\n--- Kubus ---");
+                    kubus.volume();
                     break;
                 
                 case "3":
-                    System.out.println("\nMenampilkan Volume Kubus");
-                    kubus = new Kubus(main.sisiBangun);
-                    kubus.sisiPersegi();
+                    System.out.println("\n--- Segitiga ---");
+                    System.out.print("Input sisi segitiga: ");
+                    main.sisiSegitiga = main.scanner.nextInt();
+                    main.scanner.nextLine();
+                    System.out.print("Input Alas segitiga: ");
+                    main.alas = main.scanner.nextInt();
+                    main.scanner.nextLine();
+                    System.out.print("Input Tinggi segitiga: ");
+                    main.tinggiSegitiga = main.scanner.nextInt();
+                    segitiga = new Segitiga(main.sisiSegitiga, main.alas, main.tinggiSegitiga);
+                    main.scanner.nextLine();
+                    segitiga.luas();
+                    segitiga.keliling();
                     break;
 
                 case "4":
-                    System.out.println("\nMenampilkan Luas dan Keliling Lingkaran");
-                    lingkaran = new Lingkaran(main.sisiBangun);
-                    lingkaran.sisiLingkaran();
-                    break;
-
-                case "5":
-                    System.out.println("\nMenampilkan Volume Bola");
-                    bola = new Bola(main.sisiBangun);
-                    bola.sisiLingkaran();
-                    break;
-                
-                case "6":
-                    System.out.println("\nMenampilkan Luas dan Keliling Segitiga");
-                    segitiga = new Segitiga(main.sisiBangun, main.alasSegitiga, main.tinggiSegitiga);
-                    segitiga.getHasil();
-                    break;
-                
-                case "7":
-                    System.out.println("\nMenampilkan Volume Prisma");
-                    Prisma prisma = new Prisma();
-                    prisma = new Prisma(main.tinggiPrisma);
+                    System.out.println("--- Prisma ---");
+                    System.out.print("Input tinggi prisma: ");
+                    main.tinggiPrisma = main.scanner.nextInt();
+                    main.scanner.nextLine();
                     prisma.volume();
                     break;
-            
+                
+                case "5":
+                    System.out.println("\n--- Lingkaran ---");
+                    System.out.print("Input jari-jari lingkaran: ");
+                    main.jari = main.scanner.nextInt();
+                    main.scanner.nextLine();
+                    lingkaran = new Lingkaran(main.jari);
+                    lingkaran.luas();
+                    lingkaran.keliling();
+                    break;
+
+                case "6":
+                    System.out.println("\n--- Bola ---");
+                    bola.volume();
+                    break;
+                
                 default:
-                    System.out.println("Opsi Tidak tersedia");
+                    System.out.println("Opsi tidak tersedia");
                     break;
             }
             System.out.print("Ingin keluar pendataan? input /y jika ingin keluar | /n jika tidak: ");
             main.option = main.scanner.nextLine();
+            
         } while (main.option.equalsIgnoreCase("/n"));
     }
     
