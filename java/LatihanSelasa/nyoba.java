@@ -34,3 +34,9 @@ return 0;
 }  
 }  
 }
+
+// if (main.option != "/y" | main.option != "/n") {
+//     System.out.println("Masukkan input yg benar (/y untuk keluar | /n jika tidak)");
+// } else {
+//     System.out.println("Ingin keluar pendataan? input /y jika ingin keluar | /n jika tidak: ");
+// } main.option = main.scanner.next();
