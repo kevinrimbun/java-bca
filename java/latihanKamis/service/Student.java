@@ -3,7 +3,7 @@ package latihanKamis.service;
 import latihanKamis.abstractClass.LearningPlan;
 
 public class Student implements LearningPlan  {
-    protected static int sks;
+    protected static int sks, mataKuliah;
     protected static String roomStudent;
 
 
@@ -12,10 +12,21 @@ public class Student implements LearningPlan  {
         
     }
 
-    public Student(int sks, String roomStudent) {
+    public Student(int sks, int mataKuliah, String roomStudent) {
         Student.sks = sks;
+        Student.mataKuliah = mataKuliah;
         Student.roomStudent = roomStudent;
 
+
+    }
+
+    
+    public static void setMataKuliah(int mataKuliah) {
+        Student.mataKuliah = mataKuliah;
+    }
+
+    public static int getMataKuliah() {
+        return Student.mataKuliah;
     }
 
     public void setSks(int sks){
@@ -23,7 +34,7 @@ public class Student implements LearningPlan  {
     }
 
     public int getSks(){
-        return sks;
+        return Student.sks;
     }
 
 
@@ -35,32 +46,30 @@ public class Student implements LearningPlan  {
         return roomStudent;
     }
 
-    // public String roomStudent(){
-    //     if (getSks() == 1) {
-    //         return "ROOM 1";
-    //     } else if (getSks() == 2) {
-    //         return("ROOM 2" );
-    //     } else if (getSks() == 3) {
-    //         return("ROOM 3" );
-    //     }
-    //     return null;
-    // }
-
     @Override
     public void courseName() {
         // TODO Auto-generated method stub
+        System.out.println("test dri student");
+        if (getMataKuliah() == 1) {
+            System.out.println("Pilihan mata kuliah: Java" );
+        } else if (getMataKuliah() == 2) {
+            System.out.println("Pilihan mata kuliah: Javascript" );
+        } else if (getMataKuliah() == 3) {
+            System.out.println("Pilihan mata kuliah: Python" );
+        }
         
     }
 
     @Override
     public void sks() {
         // TODO Auto-generated method stub
-        if (getSks() == 1) {
-            System.out.println("SKS sebelumnya 70 SKS + Java (75 SKS) SKS Anda Sekarang: 145 SKS" );
-        } else if (getSks() == 2) {
-            System.out.println("SKS sebelumnya 70 SKS + JavaScript (65 SKS) SKS Anda Sekarang: 135 SKS" );
-        } else if (getSks() == 3) {
-            System.out.println("SKS sebelumnya 70 SKS + Python (55 SKS) SKS Anda Sekarang: 125 SKS" );
+        System.out.println("test dri student");
+        if (getMataKuliah() == 1) {
+            System.out.println("SKS sebelumnya 70 SKS + Java (75 SKS). SKS Anda Sekarang: 145 SKS" );
+        } else if (getMataKuliah() == 2) {
+            System.out.println("SKS sebelumnya 70 SKS + JavaScript (65 SKS). SKS Anda Sekarang: 135 SKS" );
+        } else if (getMataKuliah() == 3) {
+            System.out.println("SKS sebelumnya 70 SKS + Python (55 SKS). SKS Anda Sekarang: 125 SKS" );
         }
         
     }
@@ -68,11 +77,12 @@ public class Student implements LearningPlan  {
     @Override
     public void room() {
         // TODO Auto-generated method stub
-        if (getSks() == 1) {
+        System.out.println("test dri student");
+        if (getMataKuliah() == 1) {
             System.out.println("ROOM 1" );
-        } else if (getSks() == 2) {
+        } else if (getMataKuliah() == 2) {
             System.out.println("ROOM 2" );
-        } else if (getSks() == 3) {
+        } else if (getMataKuliah() == 3) {
             System.out.println("ROOM 3" );
         }
     }
