@@ -1,8 +1,5 @@
 package latihanKamis.service;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import latihanKamis.abstractClass.StudentRegistration;
 
 public class Person implements StudentRegistration {
