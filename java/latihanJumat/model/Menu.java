@@ -1,8 +1,8 @@
 package latihanJumat.model;
 
 public class Menu{
-    protected static String menu;
-    protected static Integer harga;
+    private String menu;
+    private Integer harga;
 
     // Constructor
     public Menu(){
@@ -10,24 +10,24 @@ public class Menu{
     }
 
     public Menu(String menu, Integer harga) {
-        Menu.menu = menu;
-        Menu.harga = harga;
+        this.menu = menu;
+        this.harga = harga;
     }
 
     public String getMenu() {
-        return Menu.menu;
+        return this.menu;
     }
 
     public void setMenu(String menu) {
-        Menu.menu = menu;
+        this.menu = menu;
     }
 
     public Integer getHarga() {
-        return Menu.harga;
+        return this.harga;
     }
 
     public void setHarga(Integer harga) {
-        Menu.harga = harga;
+        this.harga = harga;
     }
 
     @Override

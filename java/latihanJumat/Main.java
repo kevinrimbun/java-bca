@@ -10,7 +10,7 @@ public class Main {
     private static Cashier<Menu, Integer> makananDao;
     private static Cashier<Menu, Integer> minumanDao;
     private static Cashier<Menu, Integer> paketDao;
-    Scanner scanner = new Scanner(System.in);
+    static Scanner scanner = new Scanner(System.in);
     static Integer menuOption;
     String next = "y"; 
 
@@ -42,7 +42,7 @@ public class Main {
         makananDao.save(makanan);
         makanan = new Menu("Rice Rolls", 12000);
         makananDao.save(makanan);
-        System.out.println(makananDao.findAll());
+        // System.out.println(makananDao.findAll());
 
         // Minuman
         Menu minuman = new Menu("Ice Tea", 5000);
@@ -51,7 +51,7 @@ public class Main {
         minumanDao.save(minuman);
         minuman = new Menu("Coconut Ice", 5000);
         minumanDao.save(minuman);
-        System.out.println(minumanDao.findAll());
+        // System.out.println(minumanDao.findAll());
 
         // Paket
         Menu paket = new Menu("Mixed Vegetables with Peanut Sauce Dressing and Ice Tea", 15000);
@@ -60,7 +60,7 @@ public class Main {
         paketDao.save(paket);
         paket = new Menu("Rice Rolls and Coconut Ice", 17000);
         paketDao.save(paket);
-        System.out.println(paketDao.findAll());
+        // System.out.println(paketDao.findAll());
 
         do {
             main.chooseOption();
@@ -89,16 +89,78 @@ public class Main {
                         k++;
                         System.out.println(k + ". " + paketMenu);
                     }
+
+                    System.out.print("\nIngin Melakukan Pemesanan?: (y | n): ");
+                    main.next = Main.scanner.nextLine();
+
                     break;
                 
                 case 2:
                     System.out.println("\n---------- Pemesanan ----------");
+                    while (main.next.equals("y")) {
+                        System.out.println("\n------ Pesan ------");
+                        System.out.println("1. Makanan");
+                        System.out.println("2. Minuman");
+                        System.out.println("3. Paket");
+                        System.out.print("Pilihan Anda: ");
+                        int menuPesan = scanner.nextInt();
+                        scanner.nextLine();
+
+                        switch (menuPesan) {
+                            case 1:
+                                System.out.println("\n------ Makanan ------");
+                                int l = 0;
+                                for (Menu makananMenu : makananDao.findAll()) {
+                                    l++;
+                                    System.out.println(l + ". " + makananMenu);
+                                }
+                                // System.out.print("Input pesanan makanan anda: ");
+                                // int menuOrder = scanner.nextInt();
+                                // scanner.nextLine();
+
+                                // if (menuOrder == 1){
+                                //     System.out.println("Makanan kata rizky " + makananDao.findById(0));
+                                // }
+                                break;
+                                
+                                // int pesan = scanner.nextInt();
+                                // scanner.nextLine();
+
+                            case 2: 
+                                System.out.println("\n------ Minuman ------");
+                                int m = 0;
+                                for (Menu minumanMenu : minumanDao.findAll()) {
+                                    m++;
+                                    System.out.println(m + ". " + minumanMenu);
+                                }
+                                break;
+
+                            case 3:
+                                System.out.println("\n------ Paket ------");
+                                int n = 0;
+                                for (Menu paketMenu : paketDao.findAll()) {
+                                    n++;
+                                    System.out.println(n + ". " + paketMenu);
+                                }
+                                
+                        
+                            default:
+                                System.out.println("Opsi tidak tersedia");
+                                break;
+                        }
+                        
+                    }
                     break;
 
             
                 default:
+                    System.out.println("Opsi tidak tersedia");
                     break;
             }
+
+            System.out.print("\nIngin melanjutkan (y | n): ");
+            main.next = Main.scanner.nextLine();
+
         } while ((main.next.equalsIgnoreCase("y")));
 
     }
