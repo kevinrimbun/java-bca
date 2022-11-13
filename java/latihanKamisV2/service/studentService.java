@@ -1,9 +1,9 @@
 package latihanKamisV2.service;
 
 public interface studentService {
-    String getFullName (int index);
+    String getFullName(int index);
 
-    int getTotalSks (int index);
+    int getTotalSks(int index);
 
     void studentRegistration(String firstName, String lastName, String domicile);
   
