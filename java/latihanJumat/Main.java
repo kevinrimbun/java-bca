@@ -231,11 +231,10 @@ public class Main {
                                     System.out.print("Input Nomor Menu yang Ingin dihapus: ");
                                     int menuHapus = scanner.nextInt();
                                     scanner.nextLine();
-                                    order = new Order();
                                     orderDaoImpl.delete(menuHapus-1);
                                     System.out.println("Menu Telah Dihapus!");
                                     System.out.println("--------------------------");
-                                    System.out.print("Ingin menghapus Menu Paket Kembali? (y | n): ");
+                                    System.out.print("Ingin menghapus Menu Kembali? (y | n): ");
                                     main.next = Main.scanner.nextLine();
                                     
                                     
@@ -256,7 +255,7 @@ public class Main {
                                         System.out.println(totalOrder += orderDaoImpl.getHarga(i));
                                     }
 
-                                    System.out.print("Input Nomor Menu yang Ingin diedit: ");
+                                    System.out.print("Input Nomor Menu yang Ingin diubah: ");
                                     int menuEdit = scanner.nextInt();
                                     scanner.nextLine();
 
@@ -265,7 +264,9 @@ public class Main {
                                     scanner.nextLine();
 
                                     order = new Order();
-                                    orderDaoImpl.findById(menuEdit - 1);
+                                    orderDaoImpl.editPesanan(menuEdit -1, menuEdit2);
+                                    // orderDaoImpl.findById(menuEdit - 1);
+                                    // orderDaoImpl.update(menuEdit -1, menuEdit2 - 1);
                                     // orderDaoImpl.update(menuEdit2 - 1, listOfOrders.get(menuEdit -1 ).getKuantitas());
                                     listOfOrders.get(menuEdit-1).getKuantitas();
                                     System.out.println("Menu Telah Diedit!");

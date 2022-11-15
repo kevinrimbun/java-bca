@@ -11,6 +11,8 @@ public interface OrderService<T, K> {
     void save(T data);
   
     void update(K id, T data);
+
+    void editPesanan(K id, K amount);
   
     void delete(K id);
 }

@@ -7,6 +7,7 @@ import latihanJumat.model.Order;
 
 public class ImplOrderServ implements OrderService<Order, Integer> {
     List<Order> listOfOrder = new ArrayList<>();
+    private Order order = new Order();
 
     @Override
     public List<Order> findAll() {
@@ -58,6 +59,15 @@ public class ImplOrderServ implements OrderService<Order, Integer> {
 
     public int getTotalPpn(){
         return getTotalHarga() + (getTotalHarga() * 11 / 100);
+    }
+
+    @Override
+    public void editPesanan(Integer id, Integer amount) {
+        // TODO Auto-generated method stub
+        order = listOfOrder.get(id);
+        order.setKuantitas(amount);
+        System.out.println("\nSuccessfully edit your data!");
+        
     }
     
 
