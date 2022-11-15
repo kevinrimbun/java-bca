@@ -43,10 +43,9 @@ public class ImplOrderServ implements OrderService<Order, Integer> {
     public int getHarga(int id) {
         Order order = this.findById(id);
         // harga = kuan x harga item
-        int harga = order.getKuantitas() * order.getMenu().getHarga();
+        int harga = (order.getKuantitas() * order.getMenu().getHarga());
         order.setTotalHarga(harga);
         return harga;
-        
     }
 
     public int getTotalHarga() {
@@ -56,6 +55,8 @@ public class ImplOrderServ implements OrderService<Order, Integer> {
         }
         return totalHarga;
     }
+
+    
 
     
     
