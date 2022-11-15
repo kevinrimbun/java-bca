@@ -265,10 +265,6 @@ public class Main {
 
                                     order = new Order();
                                     orderDaoImpl.editPesanan(menuEdit -1, menuEdit2);
-                                    // orderDaoImpl.findById(menuEdit - 1);
-                                    // orderDaoImpl.update(menuEdit -1, menuEdit2 - 1);
-                                    // orderDaoImpl.update(menuEdit2 - 1, listOfOrders.get(menuEdit -1 ).getKuantitas());
-                                    listOfOrders.get(menuEdit-1).getKuantitas();
                                     System.out.println("Menu Telah Diedit!");
                                     System.out.println("--------------------------");
                                     System.out.print("Ingin mengedit Menu Paket Kembali? (y | n): ");
@@ -321,6 +317,7 @@ public class Main {
                                 System.out.println(gcalendar.get(Calendar.SECOND) + " WIB ");
                                 System.out.println("\n");
                                 List <Order> listOrders = orderDaoImpl.findAll();
+                                System.out.println("\n--------------------");
                                 
                                 for (int i = 0; i < listOrders.size(); i++) {
                                     

@@ -65,9 +65,7 @@ public class ImplOrderServ implements OrderService<Order, Integer> {
     public void editPesanan(Integer id, Integer amount) {
         // TODO Auto-generated method stub
         order = listOfOrder.get(id);
-        order.setKuantitas(amount);
-        System.out.println("\nSuccessfully edit your data!");
-        
+        order.setKuantitas(amount);        
     }
     
 
