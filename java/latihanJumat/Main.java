@@ -1,8 +1,6 @@
 package latihanJumat;
 
-import java.util.List;
-import java.util.Scanner;
-import java.util.Date;
+import java.util.*;
 
 import latihanJumat.model.Menu;
 import latihanJumat.model.Order;
@@ -39,6 +37,7 @@ public class Main {
         ImplMenuServ menuDaoimpl = new ImplMenuServ();
         ImplOrderServ orderDaoImpl = new ImplOrderServ();
         Date date = new Date();
+        GregorianCalendar gcalendar = new GregorianCalendar();
         Order order;
         // Menu menu = new Menu();
 
@@ -54,7 +53,6 @@ public class Main {
         makananDao.save(makanan);
         makanan = new Menu("Rice Rolls", 12000);
         makananDao.save(makanan);
-        // System.out.println(makananDao.findAll());
 
         // Minuman
         Menu minuman = new Menu("Ice Tea", 5000);
@@ -63,7 +61,6 @@ public class Main {
         minumanDao.save(minuman);
         minuman = new Menu("Coconut Ice", 5000);
         minumanDao.save(minuman);
-        // System.out.println(minumanDao.findAll());
 
         // Paket
         Menu paket = new Menu("Mixed Vegetables with Peanut Sauce Dressing and Ice Tea", 15000);
@@ -72,7 +69,6 @@ public class Main {
         paketDao.save(paket);
         paket = new Menu("Rice Rolls and Coconut Ice", 17000);
         paketDao.save(paket);
-        // System.out.println(paketDao.findAll());
 
         do {
             main.chooseOption();
@@ -138,7 +134,6 @@ public class Main {
                                     for (int i = 0; i < listOfOrders.size(); i++) {
 
                                         orderDaoImpl.getHarga(i);
-                                        // listOfOrders.get(i).
                                         System.out.println( (i+1 ) + ". " + listOfOrders.get(i).getMenu()
                                         + "\t" + listOfOrders.get(i).getKuantitas() + " x Rp. " + listOfOrders.get(i).getMenu().getHarga() + " = Rp. " + listOfOrders.get(i).getTotalHarga() );
                                     }
@@ -175,7 +170,6 @@ public class Main {
                                     for (int i = 0; i < listOfOrders.size(); i++) {
 
                                         orderDaoImpl.getHarga(i);
-                                        // listOfOrders.get(i).
                                         System.out.println( (i+1 ) + ". " + listOfOrders.get(i).getMenu()
                                         + "\t" + listOfOrders.get(i).getKuantitas() + " x Rp. " + listOfOrders.get(i).getMenu().getHarga() + " = Rp. " + listOfOrders.get(i).getTotalHarga() );
                                     }
@@ -211,7 +205,6 @@ public class Main {
                                     for (int i = 0; i < listOfOrders.size(); i++) {
                                         
                                         orderDaoImpl.getHarga(i);
-                                        // listOfOrders.get(i).
                                         System.out.println( (i+1 ) + ". " + listOfOrders.get(i).getMenu()
                                         + "\t" + listOfOrders.get(i).getKuantitas() + " x Rp. " + listOfOrders.get(i).getMenu().getHarga() + " = Rp. " + listOfOrders.get(i).getTotalHarga() );
 
@@ -251,7 +244,7 @@ public class Main {
 
                                 case 5:
                                 while (main.next.equals("y")) {
-                                    System.out.println("\n------ Edit Pesanan ------");
+                                    System.out.println("\n------ Edit Pesanan------");
                                     System.out.println("\n------ Pesanan Anda ------");
                                     List <Order> listOfOrders = orderDaoImpl.findAll();
 
@@ -266,13 +259,15 @@ public class Main {
                                     System.out.print("Input Nomor Menu yang Ingin diedit: ");
                                     int menuEdit = scanner.nextInt();
                                     scanner.nextLine();
+
                                     System.out.print("Input Kuantitas yang diinginkan: ");
                                     int menuEdit2 = scanner.nextInt();
                                     scanner.nextLine();
+
                                     order = new Order();
                                     orderDaoImpl.findById(menuEdit - 1);
-                                    // orderDaoImpl.update(menuEdit - 1, listOfOrders.get(i).getMenu());
-                                    // orderDaoImpl.update(menuEdit-1, data);
+                                    // orderDaoImpl.update(menuEdit2 - 1, listOfOrders.get(menuEdit -1 ).getKuantitas());
+                                    listOfOrders.get(menuEdit-1).getKuantitas();
                                     System.out.println("Menu Telah Diedit!");
                                     System.out.println("--------------------------");
                                     System.out.print("Ingin mengedit Menu Paket Kembali? (y | n): ");
@@ -293,8 +288,7 @@ public class Main {
                         while (main.next.equals("y")) {
                             System.out.println("\n------ Lakukan Pembayaran ------");
                             System.out.println("\n------ Pesanan Anda ------");
-                            System.out.printf("%s %tB %<te, %<tY", "Tanggal saat ini:", date);
-                            System.out.println("\n");
+                            System.out.println("");
                             List <Order> listOfOrders = orderDaoImpl.findAll();
                         
                             // int Total = 0;
@@ -305,9 +299,46 @@ public class Main {
                                 System.out.println( (i+1 ) + ". " + listOfOrders.get(i).getMenu()
                                 + "\t" + listOfOrders.get(i).getKuantitas() + " x Rp. " + listOfOrders.get(i).getMenu().getHarga() + " = Rp. " + listOfOrders.get(i).getTotalHarga() );
                                 
-                                // int totalOrder = 0;
-                                // System.out.println(totalOrder += orderDaoImpl.getHarga(i));
-                            }break;
+                            }
+                            System.out.println("\n--------------------");
+                            System.out.println("\nHarga yg harus dibayarkan (PPN 11%) = " + orderDaoImpl.getTotalPpn()  );
+
+                            System.out.print("Bayar pesanan anda: ");
+                            int amount = scanner.nextInt();
+                            scanner.nextLine();
+                            System.out.print("\033[H\033[2J");
+                            System.out.flush();
+                            if (amount < orderDaoImpl.getTotalPpn()) {
+                                System.out.println("Uang Anda Kurang!");
+                            } else {
+                                System.out.println("\n------ Struk Pesanan Restoran Wareg ---------");
+                                System.out.printf("%s %tB %<te, %<tY", "Tanggal pemesanan:", date);
+                                System.out.println("");
+                                System.out.print("Waktu pemesanan: ");
+                                System.out.print(gcalendar.get(Calendar.HOUR) + " : ");
+                                System.out.print(gcalendar.get(Calendar.MINUTE) + " : ");
+                                System.out.println(gcalendar.get(Calendar.SECOND) + " WIB ");
+                                System.out.println("\n");
+                                List <Order> listOrders = orderDaoImpl.findAll();
+                                
+                                for (int i = 0; i < listOrders.size(); i++) {
+                                    
+                                    orderDaoImpl.getHarga(i);
+                                    // listOrders.get(i).
+                                    System.out.println( (i+1 ) + ". " + listOrders.get(i).getMenu()
+                                    + "\t" + listOrders.get(i).getKuantitas() + " x Rp. " + listOrders.get(i).getMenu().getHarga() + " = Rp. " + listOrders.get(i).getTotalHarga() );
+                                    
+                                }
+                                System.out.println("---------------------------------------------");
+                                System.out.println("\nTotal Harga (PPN 11%): Rp. " + orderDaoImpl.getTotalPpn());
+                                System.out.println("Tunai: Rp. " + amount);
+
+                                System.out.println( "\nKembalian anda: Rp. " +  (amount - orderDaoImpl.getTotalPpn()));
+                                System.out.println("Terima Kasih Telah Memesan, Selamat Wareg!");
+                                System.out.println("---------------------------------------------");
+                                System.out.println("Restoran Wareg x BCA x Fazztrack");
+                            }
+                            break;
                             
                         }
                         break;

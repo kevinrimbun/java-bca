@@ -56,6 +56,9 @@ public class ImplOrderServ implements OrderService<Order, Integer> {
         return totalHarga;
     }
 
+    public int getTotalPpn(){
+        return getTotalHarga() + (getTotalHarga() * 11 / 100);
+    }
     
 
     
