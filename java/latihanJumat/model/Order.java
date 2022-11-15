@@ -3,43 +3,105 @@ package latihanJumat.model;
 // import latihanJumat.model.*;
 
 public class Order {
-    private int order;
+    private int kuantitas, totalHarga;
+    private Menu menu;
 
-
-    public Order(){
+    public Order() {
 
     }
 
-    public Order(int order){
-        this.order = order;
+    public Order(int kuantitas, Menu menu) {
+        this.kuantitas = kuantitas;
+        this.menu = menu;
     }
 
-    public void setOrder(int order) {
-        this.order = order;
+    public int getKuantitas() {
+        return kuantitas;
     }
 
-    public int getOrder(){
-        return this.order;
+    public void setKuantitas(int kuantitas) {
+        this.kuantitas = kuantitas;
     }
 
 
-    // public String orderMakanan(){
-    //     if (getOrder() == 1) {
-    //         return makananDao.findById(0);
-    //     }
+    public Menu getMenu() {
+        return menu;
+    }
+
+    public void setMenu(Menu menu) {
+        this.menu = menu;
+    }
+
+    public int getTotalHarga() {
+        return totalHarga;
+    }
+
+    public void setTotalHarga(int totalHarga) {
+        this.totalHarga = totalHarga;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // public int getOrder() {
+    //     return order;
     // }
 
-
-
-    // public Order() {
-    //     super(menu, harga);
+    // public void setOrder(int order) {
+    //     this.order = order;
     // }
 
-    // public String getUserMenu(){
+    // public int getTotalHarga() {
+    //     return totalHarga;
+    // }
+
+    // public void setTotalHarga(int totalHarga) {
+    //     this.totalHarga = totalHarga;
+    // }
+
+    // @Override
+    // public Integer getHarga() {
+    //     // TODO Auto-generated method stub
+    //     return super.getHarga();
+    // }
+
+    // @Override
+    // public String getMenu() {
+    //     // TODO Auto-generated method stub
     //     return super.getMenu();
     // }
 
-    // public void setUserMenu(){
-        
+    // @Override
+    // public void setHarga(Integer harga) {
+    //     // TODO Auto-generated method stub
+    //     super.setHarga(harga);
     // }
+
+    // @Override
+    // public void setMenu(String menu) {
+    //     // TODO Auto-generated method stub
+    //     super.setMenu(menu);
+    // }
+
+    
 }

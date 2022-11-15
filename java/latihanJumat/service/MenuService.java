@@ -2,7 +2,9 @@ package latihanJumat.service;
 
 import java.util.List;
 
-public interface Cashier<T, K> {
+public interface MenuService<T, K> {
+
+    // List<T menu, K id>;
 
     List<T> findAll();
 

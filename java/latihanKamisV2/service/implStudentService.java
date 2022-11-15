@@ -53,7 +53,7 @@ public class implStudentService implements studentService {
         student.setSks(sks);
         student.setRoom(room);
     
-        System.out.println("Data KRS berhasil ditambahkan. Pada index " + index + " atas nama " + getFullName(index));
+        System.out.println("Data KRS berhasil ditambahkan. Pada NIM " + (index +1) + " atas nama " + getFullName(index));
     }
 
     @Override

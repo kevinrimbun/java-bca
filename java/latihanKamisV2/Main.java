@@ -54,8 +54,8 @@ public class Main {
                 case 2:
                     while (main.next.equals("y")) {
                         System.out.println("\n---- Input Data Mata Kuliah ----");
-                        System.out.print("1. Input index mahasiswa: ");
-                        main.index = main.scanner.nextInt();
+                        System.out.print("1. Input NIM mahasiswa: ");
+                        main.index = main.scanner.nextInt() - 1;
                         main.scanner.nextLine();
                         System.out.print("2. Input Mata Kuliah: ");
                         main.courseName = main.scanner.nextLine(); 
@@ -66,9 +66,6 @@ public class Main {
                         main.room = main.scanner.nextLine();
                         studentService.learningPlan(main.courseName, main.sks, main.room, main.index);
                         System.out.print("Ingin Menambah Data Mahasiswa? (y | n): ");
-                        main.next = main.scanner.nextLine();
-
-                        System.out.print("\nIngin Menambah Data Mahasiswa? (y | n): ");
                         main.next = main.scanner.nextLine();
                     }
                     main.next = "y";
@@ -83,12 +80,12 @@ public class Main {
                 case 4:
                     while (main.next.equals("y")) {
                         System.out.println("---- Data KRS Mahasiswa ----");
-                        System.out.print("Masukkan Index Mahasiswa: ");
+                        System.out.print("Masukkan NIM Mahasiswa: ");
                         main.index = main.scanner.nextInt();
                         main.scanner.nextLine();
-                        studentService.getStudent(main.index);
-                        System.out.println("Total SKS: " + studentService.getTotalSks(main.index));
-                        studentService.getSchedule(main.index);
+                        studentService.getStudent(main.index - 1);
+                        System.out.println("Total SKS: " + studentService.getTotalSks(main.index - 1));
+                        studentService.getSchedule(main.index - 1);
 
                         System.out.print("\nIngin Melihat Data KRS Mahasiswa Yg Lain? (y | n): ");
                         main.next = main.scanner.nextLine();
