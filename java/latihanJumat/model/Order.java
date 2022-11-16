@@ -36,10 +36,10 @@ public class Order {
         return totalHarga;
     }
 
-    public int getAllHarga(){
-        int total = 0;
-        return total += getTotalHarga();
-    }
+    // public int getAllHarga(){
+    //     int total = 0;
+    //     return total += getTotalHarga();
+    // }
 
     public void setTotalHarga(int totalHarga) {
         this.totalHarga = totalHarga;

@@ -1,0 +1,7 @@
+Pretes Spring Boot 16//11/22
+
+1.Spring Boot adalah framework yang digunakan pada java untuk membangun REST API
+2. - GET untuk membaca data yang ada dari REST server
+- POST untuk membuat sebuah data di REST server
+- PUT untuk mengupdate data yang ada di REST server
+- DELETE untuk menghapus data yang ada di REST server
